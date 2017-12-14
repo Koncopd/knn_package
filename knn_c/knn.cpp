@@ -40,7 +40,6 @@ extern "C"
     #ifdef _OPENMP
       #pragma omp parallel for
     #endif
-
     for (int n = 0; n < N; n++)
     {
         std::vector<DataPoint> indices;
