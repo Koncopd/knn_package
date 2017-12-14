@@ -5,8 +5,8 @@ knn_c = Extension('knn_c.knn',
         extra_compile_args = ['-Wall', '-O3', '-fPIC', '-ffast-math', '-funroll-loops', '-fopenmp'],
         extra_link_args = ['-fopenmp'],
         include_dirs = ['.'],
-        sources = ['knn.cpp'],
-        depends = ['vptree.h'])
+        sources = ['knn_c/knn.cpp'],
+        depends = ['knn_c/vptree.h'])
 
 setup (name = 'knn_c',
        version = '0.1',

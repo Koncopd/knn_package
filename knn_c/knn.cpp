@@ -18,9 +18,9 @@ extern "C"
   __declspec(dllexport)
   #endif
 
-  extern void get_distances_and_neighbors(double* X, int N, int D,
-                                          int* knn, double* dists, int K,
-                                          int num_threads)
+  void get_distances_and_neighbors(double* X, int N, int D,
+                                    int* knn, double* dists, int K,
+                                    int num_threads)
   {
     #ifdef _OPENMP
       omp_set_num_threads(NUM_THREADS(num_threads));
