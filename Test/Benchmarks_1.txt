@@ -1,0 +1,47 @@
+Test on a small matrix.
+Test on a medium matrix.
+
+X shape:  (500, 100)
+FUNCTION: get_distance_matrix_and_neighbors Used 12 times
+	MEDIAN 0.10183310508728027 seconds
+	MEAN   0.10235343376795451 seconds
+	STDEV  0.0016127687103440365 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 5 times
+	MEDIAN 0.03617596626281738 seconds
+	MEAN   0.03396563529968262 seconds
+	STDEV  0.005510792687762872 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 13 times
+	MEDIAN 0.10521602630615234 seconds
+	MEAN   0.10494234011723445 seconds
+	STDEV  0.0018517376989911462 seconds
+
+X shape:  (5000, 500)
+FUNCTION: get_distance_matrix_and_neighbors Used 13 times
+	MEDIAN 0.8033149242401123 seconds
+	MEAN   0.7683461629427396 seconds
+	STDEV  0.04835261486932716 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 7 times
+	MEDIAN 4.1605002880096436 seconds
+	MEAN   4.241025073187692 seconds
+	STDEV  0.299921340914811 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 10 times
+	MEDIAN 7.7975170612335205 seconds
+	MEAN   7.835760617256165 seconds
+	STDEV  0.469190782099079 seconds
+
+X shape:  (10000, 1000)
+FUNCTION: get_distance_matrix_and_neighbors Used 3 times
+	MEDIAN 4.544761896133423 seconds
+	MEAN   4.566492478052775 seconds
+	STDEV  0.12303648770021042 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 5 times
+	MEDIAN 34.14577293395996 seconds
+	MEAN   34.388074684143064 seconds
+	STDEV  1.390420277466353 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 7 times
+	MEDIAN 69.28890991210938 seconds
+	MEAN   70.45500792775836 seconds
+	STDEV  3.414560549617056 seconds
+
+_____________________________
+0:56:47.889 - total wall time

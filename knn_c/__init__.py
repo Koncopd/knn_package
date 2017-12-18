@@ -1,15 +1,11 @@
-from __future__ import print_function
-from glob import glob
 import threading
+
+from glob import glob
 import os
 import sys
 
 import numpy as np
 import cffi
-
-'''
-    Helper class to execute in separate thread.
-'''
 
 
 class FuncThread(threading.Thread):
@@ -50,7 +46,6 @@ def get_dists_and_knn(X, K, num_threads):
     cffi_knn = ffi.cast('int*', knn.ctypes.data)
     cffi_dists = ffi.cast('double*', dists.ctypes.data)
 
-
     t = FuncThread(C.get_distances_and_neighbors, cffi_X, N, D,
                                                     cffi_knn, cffi_dists, K, num_threads)
     t.daemon = True
@@ -59,5 +54,7 @@ def get_dists_and_knn(X, K, num_threads):
     while t.is_alive():
         t.join(timeout=1.0)
         sys.stdout.flush()
+
+    #C.get_distances_and_neighbors(cffi_X, N, D, cffi_knn, cffi_dists, K, num_threads)
 
     return (dists, knn)
