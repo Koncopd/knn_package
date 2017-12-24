@@ -44,7 +44,7 @@ assert np.isclose(dists_c, dists).all()
 
 functions = get_distance_matrix_and_neighbors, c_get_distance_matrix_and_neighbors, sklearn_get_distance_matrix_and_neighbors
 
-shapes_j = [(500, 100, 30), (5000, 500, 30), (10000, 1000, 15)]
+shapes_j = [(500, 100, 3), (5000, 500, 3), (10000, 1000, 3), (30000, 2000, 3)]
 
 for (n, m, j) in shapes_j:
 
@@ -60,7 +60,7 @@ for (n, m, j) in shapes_j:
         t1 = time.time()
         times[func.__name__].append(t1 - t0)
 
-    print('X shape: ', (n, m))
+    print('\nX shape: ', (n, m))
     for name, numbers in times.items():
         if j == 3:
             print('FUNCTION:', name, 'Used', len(numbers), 'times')

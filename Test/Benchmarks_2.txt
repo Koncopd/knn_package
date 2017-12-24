@@ -1,0 +1,53 @@
+Test on a small matrix.
+Test on a medium matrix.
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  c_get_distance_matrix_and_neighbors
+step  3  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (500, 100)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.10225558280944824 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.03889203071594238 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.10689663887023926 seconds
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  c_get_distance_matrix_and_neighbors
+step  3  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (5000, 500)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.7035775184631348 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 4.211020231246948 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 8.08683443069458 seconds
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  c_get_distance_matrix_and_neighbors
+step  3  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (10000, 1000)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 4.7450666427612305 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 34.02461767196655 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 69.32766938209534 seconds
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  c_get_distance_matrix_and_neighbors
+step  3  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (30000, 2000)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 68.85214972496033 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 607.8736550807953 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 1019.3276453018188 seconds
+
+_____________________________
+0:30:24.628 - total wall time
