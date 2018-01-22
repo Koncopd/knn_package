@@ -5,3 +5,5 @@ python setup.py install
 cd Test
 python Benchmarks.py > Benchmarks.txt
 ```
+![Time](Test/time.png)
+![Time](Test/memory.png)

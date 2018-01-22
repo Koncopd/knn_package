@@ -1,0 +1,65 @@
+Test on a small matrix.
+Test on a medium matrix.
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  sequential_get_distance_matrix_and_neighbors
+step  3  with function  c_get_distance_matrix_and_neighbors
+step  4  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (500, 100)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.1024930477142334 seconds
+FUNCTION: sequential_get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.014632701873779297 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.06701207160949707 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.10856103897094727 seconds
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  sequential_get_distance_matrix_and_neighbors
+step  3  with function  c_get_distance_matrix_and_neighbors
+step  4  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (5000, 500)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.8125953674316406 seconds
+FUNCTION: sequential_get_distance_matrix_and_neighbors Used 1 times
+	TIME 0.7308535575866699 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 3.999152660369873 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 8.181877613067627 seconds
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  sequential_get_distance_matrix_and_neighbors
+step  3  with function  c_get_distance_matrix_and_neighbors
+step  4  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (10000, 1000)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 4.634998559951782 seconds
+FUNCTION: sequential_get_distance_matrix_and_neighbors Used 1 times
+	TIME 3.571523904800415 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 34.35182189941406 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 69.55347180366516 seconds
+
+step  1  with function  get_distance_matrix_and_neighbors
+step  2  with function  sequential_get_distance_matrix_and_neighbors
+step  3  with function  c_get_distance_matrix_and_neighbors
+step  4  with function  sklearn_get_distance_matrix_and_neighbors
+
+X shape:  (30000, 2000)
+FUNCTION: get_distance_matrix_and_neighbors Used 1 times
+	TIME 71.95064187049866 seconds
+FUNCTION: sequential_get_distance_matrix_and_neighbors Used 1 times
+	TIME 51.54949426651001 seconds
+FUNCTION: c_get_distance_matrix_and_neighbors Used 1 times
+	TIME 622.0014476776123 seconds
+FUNCTION: sklearn_get_distance_matrix_and_neighbors Used 1 times
+	TIME 1173.7046325206757 seconds
+
+_____________________________
+0:34:12.921 - total wall time

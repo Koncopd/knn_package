@@ -1,6 +1,7 @@
 import time
 import random as rd
 import statistics as stat
+import matplotlib.pyplot as plt
 import multiprocessing as mt
 import numpy as np
 from knn_c import get_dists_and_knn
@@ -20,6 +21,9 @@ def sklearn_get_distance_matrix_and_neighbors(X, k, n_jobs=1):
     dists = dists.astype('float32')**2
     Dsq = get_sparse_distance_matrix(knn, dists, X.shape[0], k)
     return Dsq, knn, dists
+
+sequential_get_distance_matrix_and_neighbors = lambda X, k, n_jobs: get_distance_matrix_and_neighbors(X, k)
+sequential_get_distance_matrix_and_neighbors.__name__ = 'sequential_get_distance_matrix_and_neighbors'
 
 num_jobs = mt.cpu_count()
 
@@ -42,17 +46,22 @@ _, knn, dists = get_distance_matrix_and_neighbors(X, 10, n_jobs=num_jobs)
 assert np.equal(knn_c, knn).all()
 assert np.isclose(dists_c, dists).all()
 
-functions = get_distance_matrix_and_neighbors, c_get_distance_matrix_and_neighbors, sklearn_get_distance_matrix_and_neighbors
+functions = get_distance_matrix_and_neighbors, sequential_get_distance_matrix_and_neighbors, \
+            c_get_distance_matrix_and_neighbors, sklearn_get_distance_matrix_and_neighbors
 
-shapes_j = [(500, 100, 3), (5000, 500, 3), (10000, 1000, 3), (30000, 2000, 3)]
+total_time = {f.__name__: [] for f in functions}
 
-for (n, m, j) in shapes_j:
+shapes_j = [(2000, 200, 4), (5000, 500, 4), (8000, 800, 4), (12000, 1000, 4), (22000, 1500, 4)]
+ticks = []
+
+for n, m, j in shapes_j:
 
     times = {f.__name__: [] for f in functions}
+    ticks.append(str((n, m)))
 
     for i in range(j):
         X = np.random.rand(n, m)
-        func = functions[i] if j == 3 else rd.choice(functions)
+        func = functions[i] if j == len(functions) else rd.choice(functions)
         print('step ', i+1, ' with function ', func.__name__)
 
         t0 = time.time()
@@ -62,12 +71,28 @@ for (n, m, j) in shapes_j:
 
     print('\nX shape: ', (n, m))
     for name, numbers in times.items():
-        if j == 3:
+
+        if j == len(functions):
             print('FUNCTION:', name, 'Used', len(numbers), 'times')
             print('\tTIME', numbers[0], 'seconds')
+            total_time[name].append(numbers[0])
         else:
             print('FUNCTION:', name, 'Used', len(numbers), 'times')
             print('\tMEDIAN', stat.median(numbers), 'seconds')
             print('\tMEAN  ', stat.mean(numbers), 'seconds')
+            total_time[name].append(stat.mean(numbers))
             print('\tSTDEV ', stat.stdev(numbers), 'seconds')
     print('')
+
+x = range(len(shapes_j))
+for name, numbers in total_time.items():
+    lbl = name+' with n_jobs='+str(num_jobs) if name != 'sequential_get_distance_matrix_and_neighbors' else \
+                                                            'get_distance_matrix_and_neighbors with n_jobs=1'
+    plt.plot(x, numbers, marker='o', label=lbl)
+plt.xticks(x, ticks)
+plt.title('Running time (num of neighbours = 10)')
+plt.xlabel('Matrix size')
+plt.ylabel('Time (seconds)')
+plt.legend()
+
+plt.savefig('time.png')
